@@ -3,7 +3,7 @@ project(glog-gflags)
  
 set(CMAKE_BUILD_TYPE "Debug") # Debug/Release
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
  
 find_package(gflags REQUIRED)
 include_directories(${gflags_INCLUDE_DIR})

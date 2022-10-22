@@ -53,13 +53,6 @@ $ ./bin/unit_tests
 [  PASSED  ] 2 tests.
 
 ```
-# Code Of Conduct
-    Follow the rules of tencent cpp standards
-# How To Join
-    contact project owner or the group which owner belong to.
-# Members
-    all traffic product second center R&D members
-    owner: leolmzhang email:leolmzhang@tencnet.com
 # FAQ and Acknowledgments
 
 - Container Travis setup thanks to [Joan Massich](https://github.com/massich).

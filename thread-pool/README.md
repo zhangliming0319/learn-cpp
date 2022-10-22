@@ -1,7 +1,7 @@
 ThreadPool
 ==========
 
-A simple C++11 Thread Pool implementation.
+A simple C++11 Thread Pool implementation. forked from https://github.com/progschj/ThreadPool.git
 
 Basic usage:
 ```c++

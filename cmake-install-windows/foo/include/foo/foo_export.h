@@ -9,20 +9,20 @@
 #  ifndef FOO_EXPORT
 #    ifdef foo_EXPORTS
         /* We are building this library */
-#      define FOO_EXPORT __declspec(dllexport)
+#      define FOO_EXPORT __attribute__((visibility("default")))
 #    else
         /* We are using this library */
-#      define FOO_EXPORT __declspec(dllimport)
+#      define FOO_EXPORT __attribute__((visibility("default")))
 #    endif
 #  endif
 
 #  ifndef FOO_NO_EXPORT
-#    define FOO_NO_EXPORT 
+#    define FOO_NO_EXPORT __attribute__((visibility("hidden")))
 #  endif
 #endif
 
 #ifndef FOO_DEPRECATED
-#  define FOO_DEPRECATED __declspec(deprecated)
+#  define FOO_DEPRECATED __attribute__ ((__deprecated__))
 #endif
 
 #ifndef FOO_DEPRECATED_EXPORT

@@ -1,5 +1,7 @@
 {
   "files.associations": {
+    "*.excalidraw": "json",
+    "*.excalidrawlib": "json",
     "cctype": "cpp",
     "clocale": "cpp",
     "cmath": "cpp",
@@ -80,6 +82,30 @@
     "locale": "cpp",
     "queue": "cpp",
     "stack": "cpp",
-    "__functional_03": "cpp"
-  }
+    "__functional_03": "cpp",
+    "charconv": "cpp",
+    "bit": "cpp",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "format": "cpp",
+    "stop_token": "cpp",
+    "xfacet": "cpp",
+    "xhash": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xlocbuf": "cpp",
+    "xlocinfo": "cpp",
+    "xlocmes": "cpp",
+    "xlocmon": "cpp",
+    "xlocnum": "cpp",
+    "xloctime": "cpp",
+    "xmemory": "cpp",
+    "xstddef": "cpp",
+    "xstring": "cpp",
+    "xtr1common": "cpp",
+    "xtree": "cpp",
+    "xutility": "cpp",
+    "random": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }

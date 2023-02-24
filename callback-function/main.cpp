@@ -1,6 +1,5 @@
-#include <iostream>
-
 #include <functional>  // fucntion/bind
+#include <iostream>
 
 class ClassCalled {
  public:
@@ -24,10 +23,18 @@ class ClassCaller {
     std::cout << "ClassCaller.FunCaller() called.." << std::endl;
     callback();
   }
+  void FunCaller() { callback_(); }
+  bool FunCaller(int s) { callbackbool_(s); }
   bool FunCallerBool(CallbackFunBool callback, int s) {
     std::cout << "ClassCaller.CallbackFunBool() called.." << std::endl;
     return callback(s);
   }
+  void RegisteCallback(CallbackFun callback) { callback_ = callback; }
+  void RegisteCallback(CallbackFunBool callback) { callbackbool_ = callback; }
+
+ private:
+  CallbackFun     callback_;
+  CallbackFunBool callbackbool_;
 };
 
 void GlobalFun() {
@@ -40,10 +47,15 @@ int main(int argc, char** argv) {
   called.FunCalled1();
   int         var = atoi(argv[1]);
   ClassCaller caller;
-  caller.FunCaller(GlobalFun);
-  caller.FunCaller(ClassCalled::FunCalled3);
-  caller.FunCaller(std::bind(&ClassCalled::FunCalled2, &called));
-  auto temp = caller.FunCallerBool(std::bind(&ClassCalled::FunCalled5, &called, std::placeholders::_1), var);
+  caller.RegisteCallback(GlobalFun);
+  caller.FunCaller();
+  caller.RegisteCallback(ClassCalled::FunCalled3);
+  caller.FunCaller();
+  caller.RegisteCallback(std::bind(&ClassCalled::FunCalled2, &called));
+  caller.FunCaller();
+  caller.RegisteCallback(std::bind(&ClassCalled::FunCalled5, &called, std::placeholders::_1));
+  auto temp = caller.FunCaller(var);
+
   std::cout << "return : " << temp << std::endl;
   printf("\n-------------\n");
 }

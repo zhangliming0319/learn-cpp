@@ -1,5 +1,5 @@
 
-#include "elapsed_time.h"
+#include "timer.hpp"
 #include <dirent.h>
 #include <gflags/gflags.h>
 #include <glog/logging.h>
@@ -86,13 +86,11 @@ int main(int argc, char *argv[]) {
         << "  --> index < 5, i % 2 == 0"; // 当index < 5时每隔2次输出一次log；
     LOG_FIRST_N(INFO, 8) << "  --> index < 8"; // 输出前8次log
   }
-  ElapsedTime et;
-  et.MarkStart();
+  timer::Timer et;
   VLOG(0) << "VLOG 0: ";
   VLOG(1) << "VLOG 1: ";
   VLOG(2) << "VLOG 2: ";
   VLOG(3) << "VLOG 3: ";
-  et.MarkEnd();
   VLOG(1) << "vlog const time:" << et.GetElapsedTime();
   VLOG(1) << std::setprecision(15) << "chrono time now:" << et.GetCurrentTime();
 

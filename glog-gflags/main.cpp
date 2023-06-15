@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
   VLOG(2) << "VLOG 2: ";
   VLOG(3) << "VLOG 3: ";
   VLOG(1) << "vlog const time:" << et.GetElapsedTime();
-  VLOG(1) << std::setprecision(15) << "chrono time now:" << et.GetCurrentTime();
+  VLOG(1) << std::setprecision(15) << "chrono time now:" << timer::GetCurrentTime();
 
   DLOG(INFO) << "Debug Mode Message!"; // debug模式输出log，release模式不输出
   google::ShutdownGoogleLogging();

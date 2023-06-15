@@ -7,8 +7,8 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
  
 find_package(gflags REQUIRED)
 include_directories(${gflags_INCLUDE_DIR})
-find_package(Glog REQUIRED)
-include_directories(${GLOG_INCLUDE_DIRS})
+#find_package(Glog REQUIRED)
+#include_directories(${GLOG_INCLUDE_DIRS})
  
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} glog gflags)

@@ -35,7 +35,7 @@ double CurrentTime() {
 
 constexpr int  PORT      = 8080;         // 目标端口
 constexpr auto TARGET_IP = "127.0.0.1";  // 目标 IP 地址
-constexpr auto PERIOD_NS = 20'000'000;   // 发送周期 (20ms in nanoseconds)
+constexpr auto PERIOD_NS = 20000000;     // 发送周期 (20ms in nanoseconds)
 
 // 设置定时器
 int setup_timer() {

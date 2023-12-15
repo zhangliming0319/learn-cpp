@@ -105,6 +105,7 @@ int main() {
 #include <Winsock2.h>
 #include <Ws2tcpip.h>
 #include <fcntl.h>
+
 #include <cstring>
 #include <functional>
 #include <iomanip>
@@ -146,19 +147,19 @@ int main() {
   auto        next_wake_time = std::chrono::steady_clock::now() + PERIOD_MS;
   std::string message        = "Hello from WINDOWS C++ UDP client!";
   double      last_time      = timer::CurrentTime();
-      //std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count()
-      /// 1000.0;
-  double      max_delta_t = 0.0, avg_delta_t = 0.0;
-  double      min_delta_t = 100.0;
+  // std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count()
+  /// 1000.0;
+  double max_delta_t = 0.0, avg_delta_t = 0.0;
+  double min_delta_t = 100.0;
   Sleep(20);
   while (true) {
-    //sendto(sockfd, message.c_str(), message.size(), 0, (struct sockaddr*)&target_address, sizeof(target_address));
+    // sendto(sockfd, message.c_str(), message.size(), 0, (struct sockaddr*)&target_address, sizeof(target_address));
     auto now_unix = std::chrono::system_clock::now();
 
     auto duration_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(now_unix.time_since_epoch());
 
     // 计算当前的 Unix 时间戳（精确到毫秒）
-    double current_unix_time_ms = duration_since_epoch.count()/1000.0;
+    double current_unix_time_ms = duration_since_epoch.count() / 1000.0;
     double now                  = timer::CurrentTime();
     auto   delta_t              = now - last_time;
     min_delta_t                 = delta_t < min_delta_t ? delta_t : min_delta_t;
@@ -168,7 +169,7 @@ int main() {
               << min_delta_t << "," << max_delta_t << ")" << std::endl;
     last_time = now;
     // 打印当前的 Unix 时间戳
-    //std::cout << "Current Unix timestamp (ms): " << current_unix_time_ms/1000.0 << " seconds" << std::endl;
+    // std::cout << "Current Unix timestamp (ms): " << current_unix_time_ms/1000.0 << " seconds" << std::endl;
 
     std::this_thread::sleep_until(next_wake_time);
     next_wake_time += PERIOD_MS;
